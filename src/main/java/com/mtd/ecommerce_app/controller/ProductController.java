@@ -17,6 +17,7 @@ import com.mtd.ecommerce_app.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
+@CrossOrigin("*")
 public class ProductController {
 	@Autowired
     private ProductService productService;
