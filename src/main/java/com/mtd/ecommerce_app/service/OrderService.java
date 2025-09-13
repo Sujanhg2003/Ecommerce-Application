@@ -58,6 +58,10 @@ public class OrderService {
         return orderRepo.save(order);
 	}
 	
+	public Order getOrderByUserId(String id) {
+		return orderRepo.findOrderByUserId(id);
+	}
+	
 	
 	public List<Order> findAllOrders() {
 		return orderRepo.findAll();

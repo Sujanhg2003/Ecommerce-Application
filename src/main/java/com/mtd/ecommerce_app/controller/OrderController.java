@@ -41,6 +41,12 @@ public class OrderController {
 	}
 	
 	
+	@GetMapping("/user/{id}")
+	public Order getOrderDetailsByUserId(String id) {
+		return orderService.getOrderByUserId(id);
+	}
+	
+	
 	@PutMapping("/update/{id}")
 	public Order UpdateStatus(@PathVariable String id,@RequestBody OrderStatusDto orderStatusDto) {
 		return orderService.updateOrderStatus(id, orderStatusDto);

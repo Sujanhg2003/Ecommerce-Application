@@ -7,5 +7,5 @@ import com.mtd.ecommerce_app.entity.Order;
 
 @Repository
 public interface OrderRepository extends MongoRepository<Order, String> {
-
+   public Order findOrderByUserId(String id);
 }
