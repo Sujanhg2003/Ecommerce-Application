@@ -52,7 +52,7 @@ public class OrderService {
         }
         order.setItems(orderItems);
         order.setTotalAmount(total);
-        order.setStatus(OrderStatus.pending);
+        order.setStatus(OrderStatus.PENDING);
         order.setCreatedAt(LocalDateTime.now());
 
         return orderRepo.save(order);

@@ -3,6 +3,7 @@ package com.mtd.ecommerce_app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import com.mtd.ecommerce_app.service.OrderService;
 
 @RestController
 @RequestMapping("/orders")
+@CrossOrigin("*")
 public class OrderController {
 	
 	@Autowired OrderService orderService;
@@ -28,12 +30,12 @@ public class OrderController {
 		return orderService.createOrder(order);
 	}
 	
-	@GetMapping("/allDetails")
+	@GetMapping("/all")
 	public List<Order> viewAllOrder(){
 		return orderService.findAllOrders();
 	}
 	
-	@GetMapping("/orderDetail/{id}")
+	@GetMapping("/order/{id}")
 	public OrderDetailsDto getOrderDetails(@PathVariable String id) {
 		return orderService.getOrderDetails(id);
 	}
