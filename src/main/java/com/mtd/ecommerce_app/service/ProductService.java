@@ -29,13 +29,27 @@ public class ProductService {
 	 }
 	 
 	 public Product updateProduct(String id,Product product) {
-		 Product oldProduct = productRepository.findById(id).get();
-		 oldProduct.setName(product.getName());
-		 oldProduct.setDescription(product.getDescription());
-		 oldProduct.setCategory(product.getCategory());
-		 oldProduct.setStock(product.getStock());
-		 oldProduct.setPrice(product.getPrice());
-		 return productRepository.save(oldProduct);
+		 Product oldProduct = productRepository.findById(id)
+		            .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+		 if (product.getName() != null) {
+		        oldProduct.setName(product.getName());
+		    }
+		    if (product.getDescription() != null) {
+		        oldProduct.setDescription(product.getDescription());
+		    }
+		    if (product.getCategory() != null) {
+		        oldProduct.setCategory(product.getCategory());
+		    }
+		    if (product.getStock() != 0) { 
+		        oldProduct.setStock(product.getStock());
+		    }
+		    if (product.getPrice() != 0.0) {
+		        oldProduct.setPrice(product.getPrice());
+		    }
+		    if (product.getImage() != null) {
+		        oldProduct.setImage(product.getImage());
+		    }
+		    return oldProduct;
 	 }
 	 
 	 public boolean deleteProduct(String id) {

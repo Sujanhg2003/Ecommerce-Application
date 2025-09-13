@@ -2,6 +2,9 @@ package com.mtd.ecommerce_app.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import com.mtd.ecommerce_app.enums.Category;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Document(collection = "products")
 public class Product {
@@ -9,13 +12,16 @@ public class Product {
     private String id;
     private String name;
     private String description;
-    private String category;
+    @NotNull(message = "Category is required")
+    private Category category;
     private String tags;
     private float price;
+    @Min(value = 51, message = "Stock must be greater than 50")
     private int stock;
+    private String image;
     
     public Product() {}
-	public Product(String name, String description, String category, String tags, float price, int stock) {
+	public Product(String name, String description, Category category, String tags, float price, int stock,String image) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -23,6 +29,15 @@ public class Product {
 		this.tags = tags;
 		this.price = price;
 		this.stock = stock;
+		this.image = image;
+	}
+	
+
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public String getId() {
 		return id;
@@ -42,10 +57,10 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 	public String getTags() {
@@ -57,6 +72,7 @@ public class Product {
 	public float getPrice() {
 		return price;
 	}
+	
 	public void setPrice(float price) {
 		this.price = price;
 	}
