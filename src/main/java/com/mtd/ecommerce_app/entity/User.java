@@ -21,7 +21,7 @@ public class User {
     private String city;
     private String zip;
     @CreatedDate
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt=LocalDateTime.now();
     
     public User() {}
 	public User(String name, String email, String password, String street, String city, String zip,

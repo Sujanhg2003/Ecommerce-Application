@@ -9,7 +9,7 @@ public class OrderDetailsDto {
 	private String orderId;
     private String status;
     private double totalAmount;
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt=LocalDateTime.now();
 
     
     private String customerName;

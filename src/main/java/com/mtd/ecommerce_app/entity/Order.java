@@ -16,7 +16,7 @@ public class Order {
 	    private List<OrderItems> items;
 	    private double totalAmount;
 	    private OrderStatus status;   
-	    private LocalDateTime createdAt;
+	    private LocalDateTime createdAt=LocalDateTime.now();
 	    
 	    public Order() {}
 		public Order(String userId, List<OrderItems> items, double totalAmount, OrderStatus status,

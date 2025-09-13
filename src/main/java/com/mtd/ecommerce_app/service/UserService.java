@@ -15,6 +15,11 @@ public class UserService {
    @Autowired
    private UserRepository userRepository;
    
+   
+   public User getUserById(String id) {
+	   return userRepository.findById(id).get();
+   }
+   
    public User createUser(User user) {
 	    user.setId(null);
 	   return userRepository.save(user);		   
