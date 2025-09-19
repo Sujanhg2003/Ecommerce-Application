@@ -49,7 +49,8 @@ public class ProductService {
 		    if (product.getImage() != null) {
 		        oldProduct.setImage(product.getImage());
 		    }
-		    return oldProduct;
+		    
+		    return productRepository.save(oldProduct);
 	 }
 	 
 	 public boolean deleteProduct(String id) {
